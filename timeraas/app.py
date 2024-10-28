@@ -12,7 +12,7 @@ app = Flask(__name__)
 
 # Load environment variables for configuration
 DISCORD_WEBHOOK_URL = os.getenv("DISCORD_WEBHOOK_URL")
-DEBUG_MODE = bool(os.getenv("DEBUG_MODE", False))
+DEBUG_MODE = bool(int(os.getenv("DEBUG_MODE", "0")))
 
 # Basic logger setup
 logger = logging.getLogger(__name__)
