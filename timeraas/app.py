@@ -84,8 +84,9 @@ def update_window_status():
         logger.info(f"Received request to update window status to {new_status}")
 
         if toilet_window_manager.status == WindowStatus.CLOSED and validated_status == WindowStatus.OPEN:
-            toilet_window_manager.start_timer(600, timer_expired)
-            logger.info("Timer started for 600 seconds as window is now open.")
+            duration = 600
+            toilet_window_manager.start_timer(duration, timer_expired)
+            logger.info(f"Timer started for {duration} seconds as window is now open.")
         elif toilet_window_manager.status == WindowStatus.OPEN and validated_status == WindowStatus.CLOSED:
             if toilet_window_manager.timer_expired:
                 send_discord_message("Bin wieder zu, danke! 😊")
