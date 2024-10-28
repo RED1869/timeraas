@@ -26,3 +26,36 @@ Timeraas is a smart window monitoring and alert system built to work seamlessly 
   ```bash
   python -m timeraas.app
   ```
+
+### Convert to service
+
+```bash
+fabian@bananabread:~/git $ sudo cat /etc/systemd/system/timeraas.service
+[Unit]
+Description=Timeraas Window Monitoring Service
+After=network.target
+
+[Service]
+# User to run the service
+User=fabian
+# The working directory for the application
+WorkingDirectory=/home/fabian/git/timeraas
+# Command to start the service
+ExecStart=/home/fabian/git/timeraas/venv/bin/python -m timeraas.app
+# Set environment variables if needed
+Environment="DISCORD_WEBHOOK_URL=<your_webhook_url>"
+Environment="DEBUG_MODE=0"
+# Restart policy
+Restart=on-failure
+
+[Install]
+WantedBy=multi-user.target
+```
+
+```bash
+sudo systemctl daemon-reload
+sudo systemctl enable timeraas.service
+sudo systemctl start timeraas.service
+sudo systemctl status timeraas.service
+sudo journalctl -u timeraas.service -f
+```
