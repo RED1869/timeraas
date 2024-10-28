@@ -37,6 +37,8 @@ toilet_window_manager = WindowManager(toilet_window)
 
 if DISCORD_WEBHOOK_URL is None:
     logger.error("Discord webhook URL is not configured. No message will be sent out!")
+if DEBUG_MODE:
+    logger.debug("Debug mode is active")
 
 
 def timer_expired():
