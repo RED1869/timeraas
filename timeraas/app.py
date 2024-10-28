@@ -50,6 +50,8 @@ def timer_expired():
     ]
     if not DEBUG_MODE:
         send_discord_message(random.choice(messages))
+    else:
+        logger.debug("Would now have sent message to Discord.")
 
 
 def send_discord_message(message):
