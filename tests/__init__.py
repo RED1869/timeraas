@@ -1,6 +1,4 @@
 import requests
-import json
-import time
 
 """r = requests.get('http://127.0.0.1:5000/home/toilet/window')
 print(r.json())

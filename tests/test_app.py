@@ -4,6 +4,7 @@ import unittest
 from unittest.mock import patch, Mock
 from timeraas.app import app, toilet_window_manager, DISCORD_WEBHOOK_URL, timer_expired, send_discord_message
 
+
 class TestApp(unittest.TestCase):
 
     def setUp(self):

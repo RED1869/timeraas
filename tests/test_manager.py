@@ -1,9 +1,10 @@
+import threading
 import unittest
 from unittest.mock import patch, Mock
+
+from timeraas.manager import WindowManager
 from timeraas.room import Room
 from timeraas.window import Window, WindowStatus
-from timeraas.manager import WindowManager
-import threading
 
 
 class TestWindowManager(unittest.TestCase):

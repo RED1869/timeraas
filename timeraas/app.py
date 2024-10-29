@@ -1,9 +1,10 @@
 import logging
 import os
 import random
-import requests
 
+import requests
 from flask import Flask, request, jsonify
+
 from timeraas.manager import WindowManager
 from timeraas.room import Room
 from timeraas.window import Window, WindowStatus
